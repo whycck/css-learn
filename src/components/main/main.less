@@ -1,9 +1,23 @@
-.main {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.center {
+  text-align: center;
+}
+
+
+.layout {
   height: 100vh;
   display: flex;
   flex-direction: row;
   .aside {
-    // width: 256px;
     flex: 0 0 256px;
     background-color: #001529;
 
@@ -16,20 +30,106 @@
     }
   }
 
-  .container {
+  .layout-content {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: auto;
     .header {
-      // flex: 
-      // height: 60px;
       flex: 0 0 80px;
       overflow: hidden;
     }
 
-    .content {
+    &-wrapper {
       flex: 1;
-      background-color: #F2F3F7;
+      background-color: #fff;
+      .main {
+        width: 800px;
+        margin: 0 auto;
+
+        h1 {
+          .center;
+          color: #765bc4;
+        }
+
+        h2 {
+          // 
+        }
+
+        h3 {
+          .center;
+          color: #48B378;
+        }
+
+        code {
+          margin: 0 2px;
+          padding: 2px 4px;
+          font-size: 14px;
+          background-color: rgba(27, 31, 35, 0.05);
+          font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;
+          word-break: break-all;
+          color: #48B378;
+        }
+
+        pre {
+          background-color: #402C34;
+          color: #ABB2BF;
+          padding-top: 15px;
+          padding-left: 15px;
+          border-radius: 8px;
+          margin-bottom: 16px;
+        }
+
+        p {
+          line-height: 1.75em;
+          padding: 1em 0 8px;
+        }
+
+        // -------------------------------- 内容布局 ---------------------------------
+        .section {
+          font-size: 16px;
+          color: #4A4A4A;
+          padding: 1em 0 8px;
+        }
+        
+        .wrapper {
+          background-color: #f8f8f8;
+          border-radius: 8px;
+          padding: 30px;
+          width: 100%;
+        }
+
+        .quote {
+          background-color: #fbf9fd;
+          padding: 1rem;
+          border-left: 2px solid #35b378;
+          margin: 20px 0;
+          line-height: 1.75em;
+        }
+
+        .summary {
+          background-color: #fbf9fd;
+          padding: 1rem;
+          border-left: 2px solid #755ac3;
+          margin: 20px 0;
+          line-height: 1.75em;
+        }
+
+        // --------------------按钮提示部分-------------------------
+        .success {
+          background-color: #eaf2e6;
+        }
+
+        .warning {
+          background-color: #f2e8e7;
+        }
+
+        .button {
+          padding: 4px 8px;
+          border-radius: 8px;
+        }
+
+      }
     }
   }
 }

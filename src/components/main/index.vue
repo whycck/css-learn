@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="layout">
     <aside class="aside">
       <div class="logo">
 
@@ -8,12 +8,12 @@
         <Menu :menuList="menuList"></Menu>
       </div>
     </aside>
-    <div class="container">
+    <div class="layout-content">
       <header class="header">
         <!-- todos: header -->
       </header>
-      <div class="content">
-        <keep-alive>
+      <div class="layout-content-wrapper">
+        <keep-alive class="main">
           <router-view />
         </keep-alive>
       </div>
