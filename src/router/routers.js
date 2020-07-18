@@ -36,5 +36,27 @@ export default [
         component: () => import('@/pages/property/min-width')
       }
     ]
+  },
+  {
+    name: '特效',
+    path: '/effect',
+    component: Main,
+    children: [
+      {
+        name: '倒影',
+        path: '/effect/box-reflect',
+        component: () => import('@/pages/effect/wavy')
+      },
+      {
+        name: '文本阴影',
+        path: '/effect/box-shadow',
+        component: () => import('@/pages/effect/box-shadow')
+      },
+      {
+        name: '按钮悬停',
+        path: '/effect/btn-hover',
+        component: () => import('@/pages/effect/btn-hover')
+      },
+    ]
   }
 ]

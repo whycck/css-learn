@@ -30,7 +30,7 @@ ul, ol {
     }
   }
 
-  .layout-content {
+  &-content {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -105,6 +105,13 @@ ul, ol {
           border-left: 2px solid #35b378;
           margin: 20px 0;
           line-height: 1.75em;
+
+          &-list {
+            padding-left: 16px;
+            li {
+              padding: 1em 0 8px;
+            }
+          }
         }
 
         .summary {
