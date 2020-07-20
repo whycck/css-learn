@@ -17,11 +17,30 @@ export default [
         path: '/property/min-height',
         component: () => import('@/pages/property/min-height')
       },
-
       {
         name: 'flex中的min-width',
         path: '/property/min-width',
         component: () => import('@/pages/property/min-width')
+      },
+      {
+        name: 'hsla',
+        path: '/property/hsla',
+        component: () => import('@/pages/property/hsla')
+      },
+      {
+        name: 'box-shadow',
+        path: '/property/box-shadow',
+        component: () => import('@/pages/property/box-shadow')
+      },
+      {
+        name: 'text-shadow',
+        path: '/property/text-shadow',
+        component: () => import('@/pages/property/text-shadow')
+      },
+      {
+        name: 'background',
+        path: '/property/background',
+        component: () => import('@/pages/property/background')
       },
     ]
   },
