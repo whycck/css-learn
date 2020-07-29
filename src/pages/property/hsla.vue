@@ -12,11 +12,30 @@
       </ul>
     </div>
     <div class="section">
-      <p>注意：左侧图片的透明出现了问题？</p>
+      <p>假设我们想给一个容器设置一层白色背景和一道半透明白色边框</p>
       <div class="wrapper">
+      <pre>
+background: #fff;
+border: 10px solid hsla(0, 0%, 100%, .5);
+      </pre>
         <div class="container">
+          <div class="item">你是我患得患失的梦</div>
         </div>
-        <div class="container container-right">
+      </div>
+      <p>注意：左侧图片的透明出现了问题？</p>
+      <p>如图：默认状态下，背景会延伸到边框的区域下层,导致hsla属性无法使用。</p>
+      <p class="success">
+        我们可以通过 background-clip 属性来调整上述默认行为所带来的不便。这个属性的初始值是 border-box，意味着背景会被元素的 border box（边框的外沿框）裁切掉。
+        如果不希望背景侵入边框所在的范围，我们要做的就是把它的值设为 padding-box，这样浏览器就会用内边距的外沿来把背景裁切掉。
+      </p>
+      <div class="wrapper">
+        <pre>
+background: #fff;
+border: 10px solid hsla(0, 0%, 100%, .5);
+background-clip: padding-box;
+      </pre>
+        <div class="container">
+          <div class="item item-fix">你是我患得患失的梦</div>
         </div>
       </div>
       <p class="warning"><strong>CSS2.1中默认情况下，背景会延伸到边框所在的区域下层</strong>，因此出现左侧图片的问题。</p>
@@ -33,21 +52,20 @@
 </template>
 
 <style lang="less" scoped>
-.wrapper {
+.container {
+  background: url('../../assets/images/wall.jpg');
+  height: 300px;
+  width: 320px;
   display: flex;
-  justify-content: space-around;
-  .container {
-    height: 300px;
-    width: 320px;
+  align-items: center;
+  .item {
     background: #fff;
     border: 10px solid hsla(0, 0%, 100%, .5);
-    background: url('../../assets/images/cake.jpg');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 15em;
+    padding: 2em;
+    margin: 2em auto 0;
   
-    &-right {
+    &-fix {
       background-clip: padding-box;
     }
   }

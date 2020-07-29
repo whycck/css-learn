@@ -20,7 +20,7 @@
           <div>值越大，模糊面积越大，阴影就越大越淡。 不能为负值。默认为0，此时阴影边缘锐利</div>
         </li>
         <li>
-          4. <code>spread-radius</code>
+          4. <code>spread-radius</code>扩张半径
           <div>取正值时，阴影扩大；取负值时，阴影收缩。默认为0，此时阴影与元素同样大。需要考虑 inset</div>
         </li>
         <li>
@@ -32,10 +32,23 @@
     <div class="section">
       <p>如何用box-shadow模拟border呢？</p>
       <div class="wrapper">
-        <div class="box box-mock-border"></div>
+        <p>一个正值的扩张半径加上两个为零的偏移量以及为零的模糊值，得到的“投影”其实就像一道实线边框。</p>
+        <pre>
+box-shadow: 0 0 0 10px #655;    
+        </pre>
+        <div class="wrap">
+          <div class="box box-mock-border"></div>
+        </div>
       </div>
       <p>如何用box-shadow模拟多层外框？</p>
       <div class="wrapper">
+        <p>box-shadow 的好处在于，它支持逗号分隔语法，我们可以创建任意数量的投影。</p>
+        <p>第一层投影位于最顶层：</p>
+        <pre>
+box-shadow: 0 0 0 10px #655,
+  0 0 0 15px deeppink,
+  0 2px 5px 15px rgba(0, 0, 0, .6);
+        </pre>
         <div class="box box-multiple-border"></div>
       </div>
       <div class="warning">
@@ -64,28 +77,61 @@
     </div>
     <p>使用outline替代多层边框</p>
     <div class="wrapper">
-      <div class="box box-outline"></div>
-      <div class="box box-outline box-outline-shadow"></div>
-      <div class="box box-radius"></div>
+        <pre>
+      border: 10px solid #655;
+      outline: 5px solid deeppink;
+
+
+      border: 10px solid #655;
+      outline: 5px solid deeppink;
+      box-shadow: 0 2px 5px 15px rgba(0, 0, 0, .6);
+
+
+      border: 10px solid #655;
+      outline: 5px solid deeppink;
+      border-radius: .8em;
+      box-shadow: 0 0 0 .6em #655;
+      outline: .6em solid deeppink;
+        </pre>
+        <div class="outline">
+          <div class="box box-outline"></div>
+          <div class="box box-outline box-outline-shadow"></div>
+          <div class="box box-radius"></div>
+        </div>
     </div>
-    <p>当<code>outline</code>与<code>box-shadow</code>同时作用于同一个元素时，<code>outline</code>在内侧;</p>
-    <p>描边<code>outline</code>并不会跟着元素的圆角走（因而显示出直角），但 box-shadow 却是会的。因此，如果我们把这两者叠加到一起，box-shadow 会刚好填补描边和容器圆角之间的空隙，</p>
+
+    <div class="warning">
+      <p>当<code>outline</code>与<code>box-shadow</code>同时作用于同一个元素时，<code>outline</code>在内侧;</p>
+    </div>
+
+      <p>描边<code>outline</code>并不会跟着元素的圆角走（因而显示出直角），但 box-shadow 却是会的。因此，如果我们把这两者叠加到一起，box-shadow 会刚好填补描边和容器圆角之间的空隙</p>
+      <div class="wrapper">
+        <div class="box box-mul-radius">
+
+        </div>
+      </div>
 
     <h3>缝边效果</h3>
     <p>如何使用一个元素显示缝边效果呢</p>
     <div class="wrapper">
+      <pre>
+outline: 1px dashed #fff;
+box-shadow: 0 0 0 10px yellowgreen;
+      </pre>
       <div class="box box-sew"></div>
     </div>
     <div class="warning">
-      <p>如上所述，它只适用于双层“边框”的场景，因为 outline 并不能接受用逗号分隔的多个值。如果我们需要获得更多层的边框，前一种方案就是我们唯一的选择了</p>
+      <p>如上所述，它只适用于双层“边框”的场景，因为 outline 并不能接受用逗号分隔的多个值。如果我们需要获得更多层的边框，box-shadow方案就是我们唯一的选择了</p>
       <p>边框不一定会贴合 border-radius 属性产生的圆角，因此如果元素是圆角的，它的描边可能还是直角的</p>
     </div>
   </div>  
 </template>
 
 <style lang="less" scoped>
-  .wrapper {
+  .outline {
     display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
   }
 
   .box {
@@ -117,15 +163,18 @@
       box-shadow: 0 0 0 10px yellowgreen;
     }
 
-    & + .box {
-      margin-left: 50px;
-    }
-
     &-radius {
       border-radius: .8em;
       padding: 1em;
       box-shadow: 0 0 0 .6em #655;
       outline: .6em solid deeppink;
+    }
+
+    &-mul-radius {
+      border-radius: .8em;
+      padding: 1em;
+      box-shadow: 0 0 0 .6em #655;
+      outline: .6em solid #655;
     }
   }
 
