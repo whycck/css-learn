@@ -42,6 +42,16 @@ export default [
         path: '/property/background',
         component: () => import('@/pages/property/background')
       },
+      {
+        name: 'outline',
+        path: '/property/outline',
+        component: () => import('@/pages/property/box-shadow')
+      },
+      {
+        name: 'linear-gradient',
+        path: '/property/linear-gradient',
+        component: () => import('@/pages/property/linear-gradient')
+      },
     ]
   },
   {
