@@ -52,6 +52,11 @@ export default [
         path: '/property/linear-gradient',
         component: () => import('@/pages/property/linear-gradient')
       },
+      {
+        name: 'border-radius',
+        path: '/property/border-radius',
+        component: () => import('@/pages/property/border-radius')
+      },
     ]
   },
   {
