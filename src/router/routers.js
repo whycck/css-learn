@@ -57,6 +57,11 @@ export default [
         path: '/property/border-radius',
         component: () => import('@/pages/property/border-radius')
       },
+      {
+        name: 'transform',
+        path: '/property/transform',
+        component: () => import('@/pages/property/transform')
+      },
     ]
   },
   {
