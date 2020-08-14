@@ -44,7 +44,7 @@ ul, ol {
       flex: 1;
       background-color: #fff;
       .main {
-        width: 800px;
+        width: 900px;
         margin: 0 auto;
 
         h1 {
@@ -127,10 +127,12 @@ ul, ol {
         // --------------------按钮提示部分-------------------------
         .success {
           background-color: #eaf2e6;
+          text-indent: 1em;
         }
 
         .warning {
           background-color: #f2e8e7;
+          text-indent: 1em;
         }
 
         .button {
@@ -138,7 +140,50 @@ ul, ol {
           border-radius: 8px;
         }
 
-      }
+        // --------------------- demo wrapper ------------------------
+
+        .demo {
+          background: #f5f9fa;;
+          box-sizing: border-box;
+          color: #333;
+          padding: 10px;
+          border: 1px solid #eaf2f4;
+          width: 100%;
+          &-header {
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            padding-bottom: 8px;
+            align-items: center;
+            button {
+              padding: 8px;
+            }
+          }
+          &-content {
+            display: flex;
+            justify-content: space-between;
+            .properties {
+              margin-right: 30px;
+              .item {
+                padding: 20px;
+                border: solid 1px #d6dee0;
+                min-width: 360px;
+                cursor: pointer;
+                &:not(:last-child) {
+                  margin-bottom: 8px;
+                }
+              }
+            }
+
+            .result {
+              border: solid 1px #d6dee0;
+              flex: 1;
+              background: #fff;
+            }
+          }
+        }
+
+      }// main
     }
   }
 }

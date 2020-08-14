@@ -2,7 +2,7 @@
   <div class="main">
     <h1>hsla</h1>
     <div class="quote">
-      <h2>HSLA </h2>
+      <h2>HSLA</h2>
       <p>即色相(（英语：Hue)、饱和度(Saturation)、亮度(Lightness)、透明度(Alpha)</p>
       <ul class="quote-list">
         <li>1. 色相（H）是色彩的基本属性，就是平常所说的颜色名称，如红色、黄色等。</li>
@@ -14,7 +14,7 @@
     <div class="section">
       <p>假设我们想给一个容器设置一层白色背景和一道半透明白色边框</p>
       <div class="wrapper">
-      <pre>
+        <pre>
 background: #fff;
 border: 10px solid hsla(0, 0%, 100%, .5);
       </pre>
@@ -22,7 +22,7 @@ border: 10px solid hsla(0, 0%, 100%, .5);
           <div class="item">你是我患得患失的梦</div>
         </div>
       </div>
-      <p>注意：左侧图片的透明出现了问题？</p>
+      <p>注意：上方图片边框的透明出现了问题？</p>
       <p>如图：默认状态下，背景会延伸到边框的区域下层,导致hsla属性无法使用。</p>
       <p class="success">
         我们可以通过 background-clip 属性来调整上述默认行为所带来的不便。这个属性的初始值是 border-box，意味着背景会被元素的 border box（边框的外沿框）裁切掉。
@@ -38,41 +38,33 @@ background-clip: padding-box;
           <div class="item item-fix">你是我患得患失的梦</div>
         </div>
       </div>
-      <p class="warning"><strong>CSS2.1中默认情况下，背景会延伸到边框所在的区域下层</strong>，因此出现左侧图片的问题。</p>
-      <div class="quote">
-        <h2>background-clip</h2>
-        <ul class="quote-list">
-          <li>1. border-box(default): 意味着背景会被元素的 border box（边框的外沿框）裁切掉</li>
-          <li>2. padding-box: 背景不侵入边框所在的范围</li>
-          <li></li>
-        </ul>
-      </div>
-    </div> 
+    </div>
+    <p class="warning">
+      <strong>CSS2.1中默认情况下，背景会延伸到边框所在的区域下层</strong>，因此会出现上方图片边框的透明问题。
+    </p>
+
   </div>
 </template>
 
 <style lang="less" scoped>
 .container {
-  background: url('../../assets/images/wall.jpg');
+  background: url("../../assets/images/wall.jpg");
   height: 300px;
   width: 320px;
   display: flex;
   align-items: center;
   .item {
     background: #fff;
-    border: 10px solid hsla(0, 0%, 100%, .5);
+    border: 10px solid hsla(0, 0%, 100%, 0.5);
     max-width: 15em;
     padding: 2em;
     margin: 2em auto 0;
-  
+
     &-fix {
       background-clip: padding-box;
     }
   }
 }
 
-.warning {
-  text-indent: 2em;
-}
 </style>
 

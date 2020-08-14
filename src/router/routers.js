@@ -62,6 +62,11 @@ export default [
         path: '/property/transform',
         component: () => import('@/pages/property/transform')
       },
+      {
+        name: 'clip-path',
+        path: '/property/clip-path',
+        component: () => import('@/pages/property/transform')
+      },
     ]
   },
   {
@@ -97,5 +102,17 @@ export default [
         component: () => import('@/pages/effect/btn-hover')
       },
     ]
-  }
+  },
+  {
+    name: 'Js',
+    path: '/Js',
+    component: Main,
+    children: [
+      {
+        name: 'Js',
+        path: '/js/float-bits',
+        component: () => import('@/pages/js/float-bits')
+      }
+    ]
+  },
 ]
