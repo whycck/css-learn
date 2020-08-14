@@ -184,6 +184,7 @@ background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
     </div>
 
     <h3> radial-gradient</h3>
+    <p>放射状的渐变</p>
     <div class="section">
       <div class="wrapper">
         <pre>
@@ -202,6 +203,16 @@ background-size: 0 0, 15px 15px;
         <div class="box box-15"></div>
       </div>
     </div>
+
+
+    <div class="section sthSection">
+      <h3>切角效果</h3>
+      <div class="wrapper">
+        <div class="box box-1"></div>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
@@ -307,6 +318,18 @@ background-size: 0 0, 15px 15px;
       background-image: radial-gradient(tan 30%, transparent 0),
                         radial-gradient(tan 30%, transparent 0);
       background-size:  0 0, 15px 15px;
+    }
+  }
+
+  .sthSection {
+    .box {
+      width: 250px;
+      height: 155px;
+      background: #58a;
+
+      &-1 {
+        background: linear-gradient(-45deg, transparent 15px, #58a 0);
+      }
     }
   }
 }
