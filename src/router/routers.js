@@ -67,6 +67,11 @@ export default [
         path: '/property/clip-path',
         component: () => import('@/pages/property/transform')
       },
+      {
+        name: 'perspective',
+        path: '/property/perspective',
+        component: () => import('@/pages/property/perspective')
+      },
     ]
   },
   {
