@@ -87,11 +87,10 @@ box-shadow: 0 0 0 10px #655,
       box-shadow: 0 2px 5px 15px rgba(0, 0, 0, .6);
 
 
-      border: 10px solid #655;
-      outline: 5px solid deeppink;
       border-radius: .8em;
-      box-shadow: 0 0 0 .6em #655;
+      padding: 1em;
       outline: .6em solid deeppink;
+      box-shadow: 0 0 0 .6em #655;
         </pre>
         <div class="outline">
           <div class="box box-outline"></div>
@@ -112,7 +111,8 @@ box-shadow: 0 0 0 10px #655,
       </div>
 
     <h3>缝边效果</h3>
-    <p>如何使用一个元素显示缝边效果呢</p>
+    <p>如何使用一个元素显示缝边效果呢?</p>
+    <div>border 演示忽略</div>
     <div class="wrapper">
       <pre>
 outline: 1px dashed #fff;

@@ -77,7 +77,6 @@ transform: skewX(-45deg);
  top: 0; right: 0; bottom: 0; left: 0; }
     </pre>
       <p>此时，用伪元素生成的方块是重叠在内容之上的，一旦给它设置背景，就会遮住内容。为了修复这个问题，我们可以给伪元素设置z-index: -1</p>
-      <p>此处没有正常显示的原因是，z-index: -1;将背景色置于底层，但外层容器依旧有背景色，伪元素背景色被掩盖，可自行F12查看；</p>
       <div class="wrapper">
         <div class="box-3">click me</div>
       </div>
@@ -206,6 +205,7 @@ transform: rotate(30deg);
         text-transform: uppercase;
         text-decoration: none;
         font: bold 200%/1 sans-serif;
+        z-index: 0;
         &::before {
           content: "";
           position: absolute;

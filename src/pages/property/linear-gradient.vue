@@ -6,7 +6,8 @@
         href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/linear-gradient"
       >linear-gradient</a>
     </h1>
-    <div class="quote">linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。其结果属于
+    <div class="quote">
+      linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。其结果属于
       <code>gradient</code>数据类型，是一种特别的
       <code>image</code>数据类型。
       <ul class="quote-list">
@@ -21,7 +22,8 @@
         </li>
         <li>
           <code>3. linear-color-stop</code>
-          <p>由一个
+          <p>
+            由一个
             <code>color</code>值组成，并且跟随着一个可选的终点位置（可以是一个百分比值或者是沿着渐变轴的
             <code>length</code>）。CSS渐变的颜色渲染采取了与SVG相同的规则。
           </p>
@@ -52,7 +54,8 @@ linear-gradient(0deg, blue, green 40%, red);
 
         </pre>
     </div>
-    <div class="summary">提示：由于
+    <div class="summary">
+      提示：由于
       <code>gradient</code>数据类型系
       <code>image</code>的子数据类型，
       <code>gradient</code>只能被用于
@@ -127,7 +130,8 @@ background-size: 100% 45px;
         <div class="box box-8"></div>
         <div class="summary">注意此处的linear-gradient的写法：
           <p>1. 如果开始位置和结束位置相同，那么#fb3 0,可省略</p>
-          <p>2. 如果#fb3的结束位置到#58a的结束位置不是线性变化的，那么要把#58a的开始位置写出来，
+          <p>
+            2. 如果#fb3的结束位置到#58a的结束位置不是线性变化的，那么要把#58a的开始位置写出来，
             <code>linear-color-stop</code>可选的终点位置，也是下一个颜色的起始位置
           </p>
         </div>
@@ -182,8 +186,7 @@ background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
         <div class="box box-13"></div>
       </div>
     </div>
-
-    <h3> radial-gradient</h3>
+    <h3>radial-gradient</h3>
     <p>放射状的渐变</p>
     <div class="section">
       <div class="wrapper">
@@ -203,16 +206,88 @@ background-size: 0 0, 15px 15px;
         <div class="box box-15"></div>
       </div>
     </div>
-
-
     <div class="section sthSection">
       <h3>切角效果</h3>
       <div class="wrapper">
+        <pre>
+background: linear-gradient(-45deg, transparent 15px, #58a 0);
+        </pre>
         <div class="box box-1"></div>
       </div>
+      <p>如果需要有两个切角呢？</p>
+      <div class="wrapper">
+        <pre>
+background: linear-gradient(-45deg, transparent 15px, #58a 0) right,
+  linear-gradient(45deg, transparent 15px, #655 0) left;
+background-size: 50% 100%;
+        </pre>
+        <div class="box box-2"></div>
+      </div>
+      <p>
+        尽 管 我 们 已 经 用 了
+        background-size，但这两层渐变仍然是相互覆盖的。原因在于，我们忘记
+        把 background-repeat 关掉了，因而每层渐变图案各自平铺了两次。这导
+        致我们的两层渐变背景仍然是相互覆盖的，只不过这次是因为背景平铺。
+      </p>
+      <div class="wrapper">
+        <pre>
+background: linear-gradient(-45deg, transparent 15px, #58a 0) right,
+  linear-gradient(45deg, transparent 15px, #655 0) left;
+background-size: 50% 100%;
+background-repeat: no-repeat;
+        </pre>
+        <div class="box box-3"></div>
+      </div>
+      <p>现在我们可以得到最终结果</p>
+      <div class="wrapper">
+      <pre>
+background: linear-gradient(135deg, transparent 15px, #58a 0) top left,
+  linear-gradient(-135deg, transparent 15px, #58a 0) top right,
+  linear-gradient(-45deg, transparent 15px, #58a 0) bottom right,
+  linear-gradient(45deg, transparent 15px, #58a 0) bottom left;
+background-size: 50% 50%;
+background-repeat: no-repeat;
+      </pre>
+        <div class="box box-4"></div>
+      </div>
+      <p>clip-path的方式</p>
+      <div class="wrapper">
+        <pre>
+background: #58a;
+clip-path: polygon(
+  20px 0,
+  calc(100% - 20px) 0,
+  100% 20px,
+  100% calc(100% - 20px),
+  calc(100% - 20px) 100%,
+  20px 100%,
+  0 calc(100% - 20px),
+  0 20px
+);
+        </pre>
+        <div class="box box-5"></div>
+      </div>
+      <p>弧形切角</p>
+      <div class="wrapper">
+        <pre>
+background: 
+  radial-gradient(circle at top left, transparent 15px, #58a 0) top left,
+  radial-gradient(circle at top right, transparent 15px, #58a 0) top right,
+  radial-gradient(circle at bottom right, transparent 15px, #58a 0) bottom right,
+  radial-gradient(circle at bottom left, transparent 15px, #58a 0) bottom left;
+background-size: 50% 50%;
+background-repeat: no-repeat;
+        </pre>
+        <div class="box box-6"></div>
+      </div>
+      <p>未来战士：corner-shape(待补充)</p>
+      <div class="wrapper">
+        <pre>
+
+        </pre>
+        <div class="box box-7"></div>
+      </div>
     </div>
-
-
   </div>
 </template>
 
@@ -268,16 +343,13 @@ background-size: 0 0, 15px 15px;
       );
       background-size: 100% 45px;
     }
-
     &-9 {
       background-image: linear-gradient(45deg, #fb3 50%, #58a 0);
       background-size: 30px 30px;
     }
-
     &-10 {
       background: repeating-linear-gradient(60deg, #fb3 0 15px, #58a 0 30px);
     }
-
     &-11 {
       background-image: linear-gradient(
           90deg,
@@ -287,48 +359,89 @@ background-size: 0 0, 15px 15px;
         linear-gradient(rgba(200, 0, 0, 0.5) 50%, transparent 0);
       background-size: 30px 30px;
     }
-
     &-12 {
       background-image: linear-gradient(white 1px, transparent 0),
         linear-gradient(90deg, white 1px, transparent 0);
       background-size: 30px 30px;
     }
-
     &-13 {
       background: #58a;
-      background-image:
-      linear-gradient(white 2px, transparent 0),
-      linear-gradient(90deg, white 2px, transparent 0),
-      linear-gradient(hsla(0,0%,100%,.3) 1px,
-      transparent 0),
-      linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,
-      transparent 0);
-      background-size: 75px 75px, 75px 75px,
-      15px 15px, 15px 15px;
+      background-image: linear-gradient(white 2px, transparent 0),
+        linear-gradient(90deg, white 2px, transparent 0),
+        linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+        linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+      background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
     }
-
     &-14 {
       background: #655;
       background-image: radial-gradient(tan 30%, transparent 0);
       background-size: 30px 30px;
     }
-
     &-15 {
       background: #655;
       background-image: radial-gradient(tan 30%, transparent 0),
-                        radial-gradient(tan 30%, transparent 0);
-      background-size:  0 0, 15px 15px;
+        radial-gradient(tan 30%, transparent 0);
+      background-size: 0 0, 15px 15px;
     }
   }
-
   .sthSection {
     .box {
       width: 250px;
       height: 155px;
       background: #58a;
-
       &-1 {
         background: linear-gradient(-45deg, transparent 15px, #58a 0);
+      }
+      &-2 {
+        background: linear-gradient(-45deg, transparent 15px, #58a 0) right,
+          linear-gradient(45deg, transparent 15px, #655 0) left;
+        background-size: 50% 100%;
+      }
+      &-3 {
+        background: linear-gradient(-45deg, transparent 15px, #58a 0) right,
+          linear-gradient(45deg, transparent 15px, #655 0) left;
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+      }
+      &-4 {
+        background: linear-gradient(135deg, transparent 15px, #58a 0) top left,
+          linear-gradient(-135deg, transparent 15px, #58a 0) top right,
+          linear-gradient(-45deg, transparent 15px, #58a 0) bottom right,
+          linear-gradient(45deg, transparent 15px, #58a 0) bottom left;
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      &-5 {
+        background: #58a;
+        clip-path: polygon(
+          20px 0,
+          calc(100% - 20px) 0,
+          100% 20px,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          20px 100%,
+          0 calc(100% - 20px),
+          0 20px
+        );
+      }
+      &-6 {
+        background: radial-gradient(
+              circle at top left,
+              transparent 15px,
+              #58a 0
+            )
+            top left,
+          radial-gradient(circle at top right, transparent 15px, #58a 0) top
+            right,
+          radial-gradient(circle at bottom right, transparent 15px, #58a 0)
+            bottom right,
+          radial-gradient(circle at bottom left, transparent 15px, #58a 0)
+            bottom left;
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      &-7 {
+
       }
     }
   }
