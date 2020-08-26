@@ -106,6 +106,11 @@ export default [
         path: '/effect/btn-hover',
         component: () => import('@/pages/effect/btn-hover')
       },
+      {
+        name: '饼图',
+        path: '/effect/pie',
+        component: () => import('@/pages/effect/pie')
+      },
     ]
   },
   {

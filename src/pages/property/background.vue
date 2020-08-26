@@ -3,9 +3,7 @@
     <h1>background</h1>
     <div class="section position">
       <h2>
-        <a
-          href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position"
-        >background-position</a>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position">background-position</a>
       </h2>
       <p>它允许我们指定背景图片距离任意角的偏移量，只要我们在偏移量前面指定关键字</p>
       <div class="wrapper">
@@ -25,9 +23,7 @@
     <div class="section origin">
       <div class="quote">
         <h2>
-          <a
-            href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin"
-          >background-origin</a>
+          <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin">background-origin</a>
         </h2>
         <p>
           <code>background-origin</code>规定了指定背景图片
@@ -64,9 +60,18 @@
         <div class="demo-header">CSS Demo: background-origin</div>
         <div class="demo-content">
           <ul class="properties">
-            <li class="item" @click="changeOriginClass(1)">background-origin: border-box</li>
-            <li class="item" @click="changeOriginClass(2)">background-origin: padding-box</li>
-            <li class="item" @click="changeOriginClass(3)">background-origin: content-box</li>
+            <li
+              class="item"
+              @click="changeOriginClass(1)"
+            >background-origin: border-box</li>
+            <li
+              class="item"
+              @click="changeOriginClass(2)"
+            >background-origin: padding-box</li>
+            <li
+              class="item"
+              @click="changeOriginClass(3)"
+            >background-origin: content-box</li>
           </ul>
           <div class="result">
             <div :class="['demo-wrapper', originProperty]"></div>
@@ -115,10 +120,22 @@ background-position: calc(100% - 10px) calc(100% - 10px);
         </div>
         <div class="demo-content">
           <ul class="properties">
-            <li class="item" @click="changeClipClass(1)">background-clip: border-box;</li>
-            <li class="item" @click="changeClipClass(2)">background-clip: padding-box;</li>
-            <li class="item" @click="changeClipClass(3)">background-clip: content-box;</li>
-            <li class="item" @click="changeClipClass(4)">background-clip: text;
+            <li
+              class="item"
+              @click="changeClipClass(1)"
+            >background-clip: border-box;</li>
+            <li
+              class="item"
+              @click="changeClipClass(2)"
+            >background-clip: padding-box;</li>
+            <li
+              class="item"
+              @click="changeClipClass(3)"
+            >background-clip: content-box;</li>
+            <li
+              class="item"
+              @click="changeClipClass(4)"
+            >background-clip: text;
               <br>color: transparent;
             </li>
           </ul>
@@ -178,10 +195,22 @@ background-position: calc(100% - 10px) calc(100% - 10px);
         <div class="demo-header">background-size</div>
         <div class="demo-content">
           <ul class="properties">
-            <li class="item" @click="changSizeClass(1)">contain</li>
-            <li class="item" @click="changSizeClass(2)">cover</li>
-            <li class="item" @click="changSizeClass(3)">120px</li>
-            <li class="item" @click="changSizeClass(4)">120px 200px</li>
+            <li
+              class="item"
+              @click="changSizeClass(1)"
+            >contain</li>
+            <li
+              class="item"
+              @click="changSizeClass(2)"
+            >cover</li>
+            <li
+              class="item"
+              @click="changSizeClass(3)"
+            >120px</li>
+            <li
+              class="item"
+              @click="changSizeClass(4)"
+            >120px 200px</li>
           </ul>
           <div class="result">
             <div :class="['demo-wrapper', sizeProperty]"></div>
