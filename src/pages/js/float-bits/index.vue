@@ -29,7 +29,7 @@ export default {
           byte |= Number(val[i * 8 + j]) // 相当于加上了值，使用位运算
         }
         // 此处注意 字节 byte 与 bit 的区别
-        bytes[7 - i] = byte // 在内存中是以字节(bytes)反排的，字节中的每一位是正排的
+        bytes[7 - i] = byte // 在内存中是以字节(bytes)反排的，字节中的每一位是正排的哈
       }
       this.value = memory[0]
     },
